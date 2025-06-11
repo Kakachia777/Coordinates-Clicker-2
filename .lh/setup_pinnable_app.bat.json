@@ -1,0 +1,18 @@
+{
+    "sourceFile": "setup_pinnable_app.bat",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1749631649957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1749631649957,
+            "name": "Commit-0",
+            "content": "@echo off\r\necho =============================================\r\necho   Multi Coordinates Clicker Setup\r\necho   Making application pinnable to taskbar\r\necho =============================================\r\necho.\r\n\r\necho 📦 Installing required packages...\r\npip install -r requirements.txt\r\n\r\necho.\r\necho 📌 Creating shortcuts for taskbar pinning...\r\npython create_pinnable_shortcut.py\r\n\r\necho.\r\necho ✅ Setup complete!\r\necho.\r\necho 📋 To pin to taskbar:\r\necho 1. Look for the shortcut on your desktop\r\necho 2. Right-click and select \"Pin to taskbar\"\r\necho    OR\r\necho 1. Search for \"Multi Coordinates Clicker\" in Start Menu\r\necho 2. Right-click and select \"Pin to taskbar\"\r\necho.\r\npause "
+        }
+    ]
+}

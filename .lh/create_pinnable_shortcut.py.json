@@ -1,0 +1,18 @@
+{
+    "sourceFile": "create_pinnable_shortcut.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1749631629265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1749631629265,
+            "name": "Commit-0",
+            "content": "import os\r\nimport sys\r\nimport winshell\r\nfrom win32com.client import Dispatch\r\nimport subprocess\r\n\r\ndef create_pinnable_shortcut():\r\n    \"\"\"Create a Windows shortcut that can be pinned to taskbar\"\"\"\r\n    \r\n    # Get current directory\r\n    current_dir = os.path.dirname(os.path.abspath(__file__))\r\n    \r\n    # Paths\r\n    python_exe = sys.executable\r\n    script_path = os.path.join(current_dir, \"multi_coordinates_clicker_enhanced.py\")\r\n    desktop = winshell.desktop()\r\n    start_menu = winshell.start_menu()\r\n    \r\n    # Create shortcut on desktop\r\n    desktop_shortcut = os.path.join(desktop, \"Multi Coordinates Clicker.lnk\")\r\n    \r\n    # Create shortcut in start menu\r\n    start_menu_shortcut = os.path.join(start_menu, \"Multi Coordinates Clicker.lnk\")\r\n    \r\n    def create_shortcut(shortcut_path):\r\n        shell = Dispatch('WScript.Shell')\r\n        shortcut = shell.CreateShortCut(shortcut_path)\r\n        \r\n        # Set target to python executable with script as argument\r\n        shortcut.Targetpath = python_exe\r\n        shortcut.Arguments = f'\"{script_path}\"'\r\n        shortcut.WorkingDirectory = current_dir\r\n        shortcut.Description = \"Multi Coordinates Clicker - Automated clipboard pasting tool\"\r\n        \r\n        # Try to set icon (will be created when app runs)\r\n        icon_path = os.path.join(current_dir, \"temp_app_icon.ico\")\r\n        if os.path.exists(icon_path):\r\n            shortcut.IconLocation = icon_path\r\n        \r\n        shortcut.save()\r\n        print(f\"Created shortcut: {shortcut_path}\")\r\n    \r\n    try:\r\n        # Create shortcuts\r\n        create_shortcut(desktop_shortcut)\r\n        create_shortcut(start_menu_shortcut)\r\n        \r\n        print(\"\\n✅ Shortcuts created successfully!\")\r\n        print(f\"📌 Desktop shortcut: {desktop_shortcut}\")\r\n        print(f\"📌 Start Menu shortcut: {start_menu_shortcut}\")\r\n        print(\"\\n📋 Instructions for pinning to taskbar:\")\r\n        print(\"1. Right-click on the desktop shortcut\")\r\n        print(\"2. Select 'Pin to taskbar'\")\r\n        print(\"   OR\")\r\n        print(\"1. Find 'Multi Coordinates Clicker' in Start Menu\")\r\n        print(\"2. Right-click and select 'Pin to taskbar'\")\r\n        \r\n        # Ask if user wants to run the app\r\n        response = input(\"\\n🚀 Would you like to run the application now? (y/n): \")\r\n        if response.lower() in ['y', 'yes']:\r\n            subprocess.Popen([python_exe, script_path])\r\n            \r\n    except Exception as e:\r\n        print(f\"❌ Error creating shortcuts: {e}\")\r\n        print(\"Try running as administrator or install required packages:\")\r\n        print(\"pip install pywin32 winshell\")\r\n\r\nif __name__ == \"__main__\":\r\n    create_pinnable_shortcut() "
+        }
+    ]
+}

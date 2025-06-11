@@ -1,0 +1,18 @@
+{
+    "sourceFile": "create_simple_shortcut.bat",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1749312093029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1749312093029,
+            "name": "Commit-0",
+            "content": "@echo off\r\ntitle Simple Shortcut Creator\r\ncolor 0E\r\n\r\necho.\r\necho 🔗 Simple Shortcut Creator for Multi Coordinates Clicker\r\necho ================================================================\r\necho.\r\n\r\nset \"APP_DIR=%~dp0\"\r\nset \"APP_NAME=Multi Coordinates Clicker\"\r\n\r\necho 📂 Application location: %APP_DIR%\r\necho 🎯 Target: run_app.bat\r\necho.\r\n\r\necho 🔧 Creating shortcut using Windows Explorer method...\r\necho.\r\necho INSTRUCTIONS:\r\necho ================================================================\r\necho 1. Windows Explorer will open to this folder\r\necho 2. Right-click on \"run_app.bat\"\r\necho 3. Select \"Send to\" → \"Desktop (create shortcut)\"\r\necho 4. The shortcut will appear on your desktop\r\necho 5. Rename it to \"%APP_NAME%\" if desired\r\necho 6. Right-click the desktop shortcut → \"Pin to taskbar\"\r\necho.\r\n\r\necho Press any key to open Windows Explorer...\r\npause >nul\r\n\r\nREM Open Windows Explorer to the application folder\r\nexplorer \"%APP_DIR%\"\r\n\r\necho ✅ Windows Explorer opened!\r\necho 👆 Follow the instructions above to create your shortcut.\r\necho.\r\necho 💡 Alternative: You can also drag \"run_app.bat\" to your desktop\r\necho    while holding the RIGHT mouse button, then select \"Create shortcuts here\"\r\necho.\r\necho Press any key to exit...\r\npause >nul "
+        }
+    ]
+}
